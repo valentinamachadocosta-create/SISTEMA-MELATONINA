@@ -1,114 +1,121 @@
-# SISTEMA-MELATONINA
-Maquete interativa do sistema endócrino, demonstrando a relação entre o ciclo dia-noite e a produção de melatonina com Arduino, LEDs e servomotor.
-# Sistema Interativo de Melatonina
+# SISTEMA INTERATIVO DE MELATONINA
+### Arduino · Eletrônica · Biologia · Automação
 
-Maquete eletrônica e interativa desenvolvida para demonstrar a relação entre o ciclo claro-escuro e a produção de melatonina no organismo humano.
+## 1. Sobre o projeto
 
-## Sobre o projeto
+O Sistema Interativo de Melatonina é uma maquete eletrônica desenvolvida para uma feira de Ciências. Seu objetivo é demonstrar visualmente a relação entre o ciclo claro-escuro e a produção de melatonina no organismo humano.
 
-Este projeto foi desenvolvido para uma feira de Ciências com o objetivo de representar, de forma visual e interativa, como a alternância entre dia e noite está relacionada à regulação da melatonina, hormônio produzido principalmente pela glândula pineal.
+O projeto combina conhecimentos de biologia, eletrônica, programação e robótica em uma representação interativa do sistema endócrino.
 
-A maquete representa o sistema endócrino humano e utiliza componentes eletrônicos controlados por Arduino para demonstrar a transição entre os períodos de dia e noite.
+## 2. Objetivo
 
-## Objetivos
+Demonstrar como a alternância entre dia e noite está relacionada à regulação da melatonina, hormônio produzido principalmente pela glândula pineal.
 
-- Representar visualmente o sistema endócrino.
-- Demonstrar a relação entre a ausência de luz e a produção de melatonina.
-- Utilizar eletrônica e programação para criar uma demonstração interativa.
-- Integrar LEDs, servomotor e botões em um único sistema.
+A proposta é representar essa transição por meio de:
+- Uma representação visual do Sol e da Lua.
+- Um servomotor responsável pela movimentação da ilustração.
+- LEDs distribuídos pelo corpo humano.
+- Botões para controlar a demonstração.
 
-## Como funciona
+## 3. Estrutura planejada
 
-O sistema possui dois estados principais:
+A maquete foi projetada com 46 LEDs:
 
-### ☀️ Dia
+| Componente | Quantidade |
+|---|---:|
+| LEDs azuis de 3 mm | 20 |
+| LEDs brancos de 3 mm | 20 |
+| LEDs amarelos de 5 mm | 3 |
+| LEDs brancos de 5 mm | 3 |
+| **Total** | **46** |
+
+Os LEDs foram distribuídos visualmente pela estrutura do corpo, incluindo cabeça, tronco e membros superiores e inferiores.
+
+## 4. Funcionamento
+
+### ☀️ Modo Dia
 - A representação do Sol fica visível.
 - Os LEDs permanecem apagados.
 - O servomotor fica na posição inicial.
 
-### 🌙 Noite
-- Ao pressionar o botão START, o servomotor movimenta o disco ilustrado de Sol e Lua.
-- Os LEDs acendem em sequência, representando o aumento da produção de melatonina.
-- A iluminação permanece ativa até o botão STOP ser pressionado.
+### 🌙 Modo Noite
+- O botão START inicia a transição.
+- O servomotor movimenta a representação de Sol e Lua.
+- Os grupos de LEDs são acionados sequencialmente.
+- A iluminação representa o aumento da produção de melatonina.
 
-Ao pressionar STOP, os LEDs são apagados e o servomotor retorna à posição inicial.
+### Retorno ao Dia
+- O botão STOP encerra a demonstração.
+- Os LEDs são apagados.
+- O servomotor retorna à posição inicial.
 
-## Componentes utilizados
+## 5. Componentes eletrônicos
 
 - Arduino Uno
 - Servomotores
-- LEDs de 3 mm e 5 mm
-- Resistores de 10 kΩ utilizados nos grupos de LEDs
+- 46 LEDs de diferentes cores e tamanhos
+- Resistores individuais para os LEDs
 - Botões tácteis
 - Protoboard
 - Jumpers
 - Power bank para alimentação externa dos servomotores
-- Estrutura física da maquete
-- Ilustrações de Sol e Lua
 
-## Organização dos LEDs
+## 6. Programação e controle
 
-O projeto foi planejado com 46 LEDs distribuídos pela maquete, incluindo a região da cabeça e diferentes partes do corpo.
+A programação foi desenvolvida em C++ utilizando a Arduino IDE e a biblioteca Servo.
 
-Na configuração final demonstrada, 10 LEDs foram utilizados em três grupos de controle:
+O sistema utiliza:
+- Controle de posição do servomotor.
+- Leitura digital dos botões.
+- Acionamento sequencial de grupos de LEDs.
+- Controle dos estados de dia e noite.
 
-| Pino Arduino | Quantidade | Função |
-|---|---:|---|
-| D3 | 3 | Grupo 1 |
-| D4 | 3 | Grupo 2 |
-| D5 | 4 | Grupo 3 |
-| D6 | Grupo não utilizado | Expansão planejada |
+## 7. Desenvolvimento
 
-Os demais LEDs fazem parte da distribuição visual planejada para a maquete, mas não foram integrados à demonstração eletrônica final.
+O desenvolvimento envolveu:
 
-## Ligações do Arduino
+1. Planejamento da estrutura física.
+2. Instalação e identificação dos LEDs.
+3. Montagem dos circuitos eletrônicos.
+4. Testes individuais dos grupos de iluminação.
+5. Programação dos servomotores.
+6. Integração dos botões START e STOP.
+7. Integração do controle de iluminação.
 
-| Componente | Pino |
-|---|---|
-| Grupo de LEDs 1 | D3 |
-| Grupo de LEDs 2 | D4 |
-| Grupo de LEDs 3 | D5 |
-| Servomotor principal | D10 |
-| Botão START | D12 |
-| Botão STOP | D13 |
+Durante a montagem, foram realizados ajustes de conexões, posicionamento e alimentação para melhorar a estabilidade do sistema.
 
-Os servomotores utilizam alimentação externa pelo power bank, com referência de GND compartilhada com o Arduino.
+## 8. Resultado da demonstração
 
-## Programação
+A versão apresentada na feira utilizou:
+- Arduino Uno.
+- Um servomotor principal.
+- Dois botões de controle.
+- Três grupos de LEDs, totalizando 10 LEDs funcionais.
 
-A programação foi desenvolvida em C++ utilizando a biblioteca `Servo.h`, na Arduino IDE.
+A configuração de 46 LEDs corresponde ao escopo completo planejado para a maquete. Nem todos os grupos foram integrados à demonstração final.
 
-O programa controla:
-- A posição do servomotor.
-- A leitura dos botões START e STOP.
-- O acionamento sequencial dos três grupos de LEDs.
-- O retorno do sistema ao estado inicial.
+## 9. Possíveis melhorias
 
-O código está disponível na pasta `codigo`.
+- Integrar eletronicamente os 46 LEDs.
+- Desenvolver uma placa de circuito dedicada.
+- Melhorar a organização dos fios.
+- Aprimorar o mecanismo de movimentação de Sol e Lua.
+- Adicionar novos recursos de interação.
 
-## Desenvolvimento
+## 10. Tecnologias e conhecimentos aplicados
 
-O desenvolvimento envolveu montagem física da maquete, identificação dos componentes, testes individuais dos grupos de LEDs, testes dos servomotores, ajustes de posicionamento e integração do sistema com os botões.
-
-Durante os testes, foram realizados ajustes na distribuição dos pinos e na alimentação dos componentes para obter um funcionamento estável.
-
-## Possibilidades de expansão
-
-- Integrar os grupos de LEDs restantes.
-- Melhorar a estrutura de suporte das ilustrações de Sol e Lua.
-- Adicionar novos recursos visuais e interativos.
-- Aprimorar a organização eletrônica em uma placa dedicada.
-
-## Resultado
-
-O projeto resultou em uma maquete interativa capaz de representar a transição entre dia e noite por meio de um servomotor e de grupos de LEDs controlados por Arduino.
-
-A construção permitiu aplicar conhecimentos de eletrônica, programação, montagem de circuitos e biologia em um projeto prático.
+- Arduino Uno
+- C++
+- Eletrônica básica
+- Sistemas embarcados
+- Servomotores
+- Circuitos com LEDs
+- Prototipagem
+- Biologia humana
+- Automação
 
 ## Autoria
 
-Projeto desenvolvido individualmente por **Valentina Costa** para uma feira de Ciências.
+**Desenvolvido por: Valentina Costa**
 
----
-
-**Tecnologias:** Arduino Uno · C++ · Eletrônica · Sistemas embarcados · Educação científica.
+Projeto autoral desenvolvido para uma feira de Ciências.
